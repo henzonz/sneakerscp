@@ -52,7 +52,7 @@ function App() {
                       <div className="card-title h-50" style={{ fontWeight: 'bold', fontSize: '1.15rem' }}> {shoe.value} </div>
                       <div className="shoe-info">
                         <img className="mp-logo" style={{width:'32px', height:'32px'}} src={GoatLogo}/>
-                        <div className="shoe-price">{parseFloat((shoe.data.gp_lowest_price_cents_3)/100).toFixed(2)}</div>
+                        <div className="shoe-price">${parseFloat((shoe.data.gp_lowest_price_cents_3)/100).toFixed(2)}</div>
                       </div>
                     </div>
                   </div>
