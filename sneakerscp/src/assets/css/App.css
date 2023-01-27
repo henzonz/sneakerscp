@@ -1,4 +1,22 @@
-.search-input{
+.search-container{
     display: flex;
     justify-content: center;
+    position: relative;
+    margin-bottom: 5rem;
+
+}
+.search-icon{
+    position:absolute;
+    font-size: 21px;
+    top: 45%;
+    margin-left: 150px;
+}
+input{
+    padding: 10px;
+}
+.shoe-info{
+    display:flex;
+}
+.shoe-price{
+    margin-left: 3rem;
 }

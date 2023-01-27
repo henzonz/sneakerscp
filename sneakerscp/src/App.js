@@ -1,5 +1,9 @@
 import './assets/css/App.css';
 import './assets/css/bootstrap.min.css'
+import SearchIcon from './assets/img/search.png'
+import GoatLogo from './assets/img/goat-logo-512.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import Axios from "axios"
 import { useEffect, useState } from 'react';
 
@@ -25,14 +29,15 @@ function App() {
   }
   return (
     <div className="App">
-      <div className="search-input pt-3">
+      <div className="search-container pt-3">
         <input
+          className="border border-secondary rounded-pill"
           type="text"
           value={searchShoe}
-          placeholder="Search"
+
           onChange={handleSearch}
-        >
-        </input>
+        />
+        <FontAwesomeIcon className="search-icon text-muted" icon={faMagnifyingGlass} />
       </div>
       {/* shoe search results */}
       <div className="container">
@@ -44,8 +49,11 @@ function App() {
                   <div className="card h-100" style={{ width: '14rem' }}>
                     <img className="card-img-top" src={shoe.data.image_url} style={{ height: '200px', width: '200px' }} alt="card-img" />
                     <div className="card-body">
-                      <div className="card-title" style={{ fontWeight: 'bold', fontSize: '1.15rem' }}> {shoe.value} </div>
-                      <p className="card-text">Sample quick text to build this card</p>
+                      <div className="card-title h-50" style={{ fontWeight: 'bold', fontSize: '1.15rem' }}> {shoe.value} </div>
+                      <div className="shoe-info">
+                        <img className="mp-logo" style={{width:'32px', height:'32px'}} src={GoatLogo}/>
+                        <div className="shoe-price">{parseFloat((shoe.data.gp_lowest_price_cents_3)/100).toFixed(2)}</div>
+                      </div>
                     </div>
                   </div>
                 </div> :
