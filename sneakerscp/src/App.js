@@ -46,11 +46,12 @@ function App() {
             return (
               (shoe.data.category === 'shoes') ?
                 <div className="col p-2">
-                  <div className="card h-100" style={{ width: '14rem' }}>
+                  <div className="card shadow h-100" style={{ width: '14rem' }}>
+                    <div className="shoe-year font-italic font-weight-bold">{shoe.data.release_date_year}</div>
                     <img className="card-img-top" src={shoe.data.image_url} style={{ height: '200px', width: '200px' }} alt="card-img" />
                     <div className="card-body">
-                      <div className="card-title h-50" style={{ fontWeight: 'bold', fontSize: '1.15rem' }}> {shoe.value} </div>
-                      <div className="shoe-info">
+                      <div className="card-title h-50" style={{ fontWeight: 'bold', fontSize: '1.05rem' }}> {shoe.value} </div>
+                      <div className="shoe-info mt-4">
                         <img className="mp-logo" style={{width:'32px', height:'32px'}} src={GoatLogo}/>
                         <div className="shoe-price">${parseFloat((shoe.data.gp_lowest_price_cents_3)/100).toFixed(2)}</div>
                       </div>

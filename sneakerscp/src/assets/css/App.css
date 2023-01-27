@@ -3,13 +3,21 @@
     justify-content: center;
     position: relative;
     margin-bottom: 5rem;
-
 }
 .search-icon{
     position:absolute;
     font-size: 21px;
     top: 45%;
     margin-left: 150px;
+}
+.card:hover{
+    transform:scale(1.05);
+}
+.shoe-year{
+    display:flex;
+    justify-content: flex-end;
+    margin-right: 0.2rem;
+    font-size: 0.7rem;
 }
 input{
     padding: 10px;
