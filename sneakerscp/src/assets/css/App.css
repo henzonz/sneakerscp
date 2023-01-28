@@ -12,8 +12,9 @@
     position:absolute;
     font-size: 21px;
     top: 45%;
-    margin-left: 150px;
+    margin-left: 170px;
 }
+
 .card:hover{
     transform:scale(1.05);
 }

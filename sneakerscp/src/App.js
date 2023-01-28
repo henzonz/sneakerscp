@@ -15,7 +15,7 @@ function App() {
   const [tempSearch, setTempSearch] = useState("");
 
   function getURL(search) {
-    const url = `${API_URL}${search.replace(/ /g, "%20")}` + '?c=ciojs-client-2.29.12&key=key_XT7bjdbvjgECO5d8&i=304dfa84-55c2-4423-82f6-945c8450c185&s=3&page=1&num_results_per_page=24&fmt_options%5Bhidden_fields%5D=gp_lowest_price_cents_3&fmt_options%5Bhidden_fields%5D=gp_instant_ship_lowest_price_cents_3&fmt_options%5Bhidden_facets%5D=gp_lowest_price_cents_3&fmt_options%5Bhidden_facets%5D=gp_instant_ship_lowest_price_cents_3&_dt=16746857093'
+    const url = `${API_URL}${search.replace(/ /g, "%20")}` + '?c=ciojs-client-2.29.12&key=key_XT7bjdbvjgECO5d8&i=304dfa84-55c2-4423-82f6-945c8450c185&s=3&page=1&num_results_per_page=25&fmt_options%5Bhidden_fields%5D=gp_lowest_price_cents_3&fmt_options%5Bhidden_fields%5D=gp_instant_ship_lowest_price_cents_3&fmt_options%5Bhidden_facets%5D=gp_lowest_price_cents_3&fmt_options%5Bhidden_facets%5D=gp_instant_ship_lowest_price_cents_3&_dt=16746857093'
     return Axios.get(url);
   }
   useEffect(() => {
@@ -30,9 +30,11 @@ function App() {
   function handleSearch(event) {
     setTempSearch(event.target.value);
   }
-  function handleKeyPressed(event){
-    if(event.key === "Enter"){
-      setSearchShoe(tempSearch)
+  function handleKeyPressed(event) {
+    if (event.key === "Enter") {
+      setTimeout(() => {
+        setSearchShoe(tempSearch)
+      }, 1500)
     }
   }
   return (
@@ -46,10 +48,12 @@ function App() {
           onKeyDown={handleKeyPressed}
         />
         <FontAwesomeIcon className="search-icon text-muted" icon={faMagnifyingGlass} />
+
       </div>
       {/* shoe search results */}
       <div className="container">
         <div className="row">
+
           {shoeData.map((shoe) => {
             return (
               (shoe.data.category === 'shoes') ?
@@ -65,10 +69,14 @@ function App() {
                       </div>
                     </div>
                   </div>
-                </div> :
+                </div>
+
+
+                :
                 <></>
             );
           })}
+
         </div>
       </div>
     </div>
