@@ -58,7 +58,7 @@ function App() {
             return (
               (shoe.data.category === 'shoes') ?
                 <div className="col py-3" key={shoe.data.id}>
-                  <div className="card shadow h-100" style={{ width: '14rem' }}>
+                  <div className="card mx-auto shadow h-100" style={{ width: '14rem' }}>
                     <div className="shoe-year font-italic font-weight-bold">{shoe.data.release_date_year}</div>
                     <img className="card-img-top shoe-img" src={shoe.data.image_url} style={{ height: '200px', width: '200px' }} alt="card-img" />
                     <div className="card-body">
