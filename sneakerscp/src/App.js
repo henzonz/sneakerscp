@@ -12,7 +12,7 @@ function App() {
   const API_URL = 'https://ac.cnstrc.com/search/'
   const [shoeData, setShoeData] = useState([]);
   const [searchShoe, setSearchShoe] = useState("");
-  // const [tempSearch, setTempSearch] = useState("");
+  const [tempSearch, setTempSearch] = useState("");
 
   function getURL(search) {
     const url = `${API_URL}${search.replace(/ /g, "%20")}` + '?c=ciojs-client-2.29.12&key=key_XT7bjdbvjgECO5d8&i=304dfa84-55c2-4423-82f6-945c8450c185&s=3&page=1&num_results_per_page=24&fmt_options%5Bhidden_fields%5D=gp_lowest_price_cents_3&fmt_options%5Bhidden_fields%5D=gp_instant_ship_lowest_price_cents_3&fmt_options%5Bhidden_facets%5D=gp_lowest_price_cents_3&fmt_options%5Bhidden_facets%5D=gp_instant_ship_lowest_price_cents_3&_dt=16746857093'
@@ -28,7 +28,12 @@ function App() {
   }, [searchShoe]);
 
   function handleSearch(event) {
-    setSearchShoe(event.target.value);
+    setTempSearch(event.target.value);
+  }
+  function handleKeyPressed(event){
+    if(event.key === "Enter"){
+      setSearchShoe(tempSearch)
+    }
   }
   return (
     <div className="main-screen">
@@ -36,8 +41,9 @@ function App() {
         <input
           className="border border-secondary rounded-pill"
           type="text"
-          value={searchShoe}
+          value={tempSearch}
           onChange={handleSearch}
+          onKeyDown={handleKeyPressed}
         />
         <FontAwesomeIcon className="search-icon text-muted" icon={faMagnifyingGlass} />
       </div>
